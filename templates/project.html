@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='project.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://kit.fontawesome.com/4d103c5d05.js" crossorigin="anonymous"></script>
+    <title>CodingProjects - {{project_name}}</title>
+</head>
+<body>
+    <header>
+        <nav class="navcontainer">
+            <a href="/"><h1 id ="logo">CodingIdeas;</h1></a>
+            <a href="https://github.com/Bmbus/ProjectIdeas"><i class="fab fa-github" id="githublogo"></i></a>
+        </nav>
+    </header>
+    <div id="project-content-div">
+        <div id="project-detail-container" class="divcontainer" position="center">
+            <h1 id="divheading">{{project_name}}</h1> <a href="{{project_githuburl}}"></a>
+            <p id="level-label">{{project_level}}</p>
+            <h4 id= "divparagraph">{{project_description}}</h4>
+            <a href={{project_githuburl}}><i class="fab fa-github" id="githublogo-project"></i></a>
+        </div>
+    </div>
+</body>
+</html>

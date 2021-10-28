@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+
+@font-face {
+    font-family: "ticketing";
+    src: url("fonts/Ticketing.ttf");
+}
+
+#MAIN {
+    transition: 0.5s;
+}
+
+html {
+
+    box-sizing: border-box;
+}
+* {
+    
+    box-sizing: border-box;
+}
+
+h1, p, input, textarea, select {
+    font-family: ticketing;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+:root {
+
+    --universal-font :  'Source Sans Pro', sans-serif;
+}
+
+body {
+
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    overflow-x: hidden;
+
+}
+
+.navcontainer {  /**navbarstart**/
+
+    display: flex;
+    justify-content: space-around;
+    background-color: #C8E6C9;
+    border-bottom-left-radius: 5px ;
+    border-bottom-right-radius: 5px ;
+}
+
+#githublogo {
+
+    width: 50px;
+    height: 40px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+#logo {
+
+    font-family: 'Rampart One', cursive;
+    cursor: pointer;
+
+
+}      /** navbarend **/
+
+.ultimatecontainer {
+    position: relative;  
+}
+
+.centerifieddiv {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+}
+
+#level-label {
+    background: #66BB6A;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    margin-left: auto; 
+    margin-right: auto;
+    
+}
+
+#divheading {
+    padding-top: 35px;
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 10px;
+}
+
+#divparagraph {
+    text-align: center;
+    word-wrap: break-word;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 22px;
+}
+
+
+.divcontainer {
+    width: 650px;
+    height: 300px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    border-radius: 20px ;
+    -webkit-border-radius: 20px ;
+    -moz-border-radius: 20px ;
+    -ms-border-radius: 20px ;
+    -o-border-radius: 20px ;
+    box-shadow: 1px 1px 1px 1px black;
+    margin-top: 100px;
+    margin-left: 90px;
+    margin-bottom: -60px;
+    text-align: center;
+}
+
+#divheading {
+    padding-top: 10px;
+}
+
+.buttoncontainer {
+
+    position: relative;
+    top: 120px;
+    display: flex;
+    float: right;
+    flex-direction: column;
+    width: 30%;
+    padding-left: 6%;
+    height: 100%;
+    position: absolute;
+    margin-left: 70%;
+
+}
+
+#newbutton {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -ms-border-radius: 10px ;
+    -o-border-radius: 10px ;
+    border-style: none;
+    cursor: pointer;
+    background: #66BB6A ;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
+    margin-right: 40px;
+    margin-bottom: 7px;
+    font-weight: bold;
+
+}
+
+.centerifieddiv {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: space-around;
+    margin-bottom: -100px;
+}
+#randombutton {
+
+    width: 100px;
+    height: 40px;
+    border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -ms-border-radius: 10px ;
+    -o-border-radius: 10px ;
+    border-style: none;
+    cursor: pointer;
+    background: transparent ;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #66BB6A;
+    border: 1px solid #66BB6A;
+    font-weight: bold;
+
+}
+
+/** popup code **/
+
+.popupcontainer {
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+}
+
+.popupcontent {
+
+    width: 500px;
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    position: fixed;
+}
+
+input {
+    width: 50%;
+    display: block;
+    margin: 30px auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    height: 30px;
+    border-style: solid;
+    font-size: 15px;
+}
+
+select {
+    margin-right: 150px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-style: solid;
+    display: inline;
+    font-size: 15px;
+}
+
+textarea {
+    width: 50%;
+    height: 120px;
+    resize: none;
+    border-radius: 5px ;
+    -webkit-border-radius: 5px ;
+    -moz-border-radius: 5px ;
+    -ms-border-radius: 5px ;
+    -o-border-radius: 5px ;
+    border-style: solid;
+    font-size: 15px;
+    
+}
+#sbbutton {
+    width: 90px;
+    height: 30px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border-style: none;
+    color: #fff;
+    background-color:  #66BB6A;
+    cursor: pointer;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+
+#sbbutton:hover {
+
+    background-color: #000;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 30px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.close:hover{
+
+    color: #66BB6A;
+}
+
+.blur   {
+    transition: 2s;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+}
+
+/** popup code ends **/

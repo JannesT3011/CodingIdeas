@@ -1,0 +1,55 @@
+@media All and (max-width: 1024px) { /* Mobile and tablets*/
+
+body {
+
+    overflow-x: hidden;
+}
+
+
+.ultimatecontainer {
+
+    margin: auto;
+}
+
+
+.divcontainer {
+
+    margin: 170px auto;
+    width: 100%;
+    order:4;
+    
+}
+.buttoncontainer {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    position: relative;
+    
+    
+    
+    
+    
+}
+#newbutton {
+
+    display: inline;
+    margin-right: 4px;
+    
+}
+.popupcontent {
+
+    width: 90%;
+    
+}
+
+select {
+
+    margin-left: 80px;
+}
+
+
+
+}
+

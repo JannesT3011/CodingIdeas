@@ -3,9 +3,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{url_for('static', filename='home.css')}}" rel="stylesheet">
     <title>CodingProjects</title>
 </head>
 <body>
-    
+    <div id="project-idea-feed">
+        {% for project in projects %}
+            <a href="">
+                <div class="project-container">
+                    <h1>{{project.title}}</h1>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    <button>Create project!</button>
+    <div id="create-project-popup">
+        <form action="" method="post">
+            <label for="Name">Project Name</label>
+            <input id="Name" type="text" placeholder={{random_project_title}} required>
+            <label for="Email">Email</label>
+            <input id= "Email" type="email" placeholder="example@example.com" required>
+            <label for="Description">Description</label>
+            <textarea id="Description" name="" id="" cols="30" rows="10" placeholder="Project description" required></textarea>
+            <label for="GithubLink">Github Link</label>
+            <input id="GithubLink" type="text" placeholder="https://github.com/your_username/your_repo">
+            <input type="submit" value="Submit project idea">
+        </form>
+    </div>
+    <footer>
+        footer
+    </footer>
 </body>
 </html>
