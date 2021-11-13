@@ -1,69 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
-    <script src="https://kit.fontawesome.com/4d103c5d05.js" crossorigin="anonymous"></script>
     <title>CodingIdeas</title>
+
+    <!-- font awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}"> 
 </head>
+
 <body>
-    <main>
+    <!-- menu section  -->
+    <section class="menuSection">
         <header>
-            <nav class="navcontainer">
-                <a href="/"><h1 id ="logo">CodingIdeas;</h1></a>
-                <a href="https://github.com/Bmbus/ProjectIdeas"><i class="fab fa-github" id="githublogo"></i></a>
+            <nav>
+                <a href="/"><h3 id="nav-title">CodingIdeas</h3></a>
+                <a href="https://github.com/Bmbus/Bmbus.github.io"><i class="fab fa-github"></i></a>
             </nav>
         </header>
-        <section class="ultimatecontainer" id="MAIN">
-            <div class="buttoncontainer">
-                <button id="newbutton">New</button><br><br>
-                <button id="randombutton" onClick="randomProject()">Random</button>
-            </div>
-        
-            {% for project in projects %}
-                <a href="/project/{{project.id}}/{{project.title}}">
-                    <div class=centerifieddiv>
-                        <div class="divcontainer">
-                        <br>
-                        <h1 id="divheading">{{project.title}}</h1>
-                        <p id="level-label">{{project.level}}</p>
-                        <p id= "divparagraph">{{project.description[0:100]}} <br>...</p>
-                    </div>  
-                </a>
-            {% endfor %}      
-            <div id="placeholder"></div>
-        </section>   
-        <section>
 
-            <div class="popupcontainer">
-                <div class="popupcontent">
+    </section>
+
+    <!-- main section of all content -->
+    <section class="hero">
+        <div class="newRandomBtn">
+            <button class="addNew">New</button>
+            <button class="randomBtn" onClick="randomProject()">Random</button>
+        </div>
+        <div class="popupcontainer">
+            <div class="popup">
+                <div class="popupContent">
+
                     <form action="{{url_for('project_create')}}" method="post">
-                        <div class="close">+</div>
-                        <input type="text" required placeholder="Enter your name" name="projectName">
-                        <input type="email" required placeholder="Enter your Email" name="projectEmail">
-                        <input type="url" required placeholder="Enter your Github url account" name="projectUrl">
-                        <select name="dropdown">
-                            <option value = "Beginner" selected>Beginner</option>
-                            <option value = "Experienced">Experienced</option>
-                            <option value = "Pro">Pro</option>
-                        </select><br>
-                        <textarea placeholder="Description (500)" name="projectDescription" maxlength="500"></textarea><br><br>
-                        <button id="sbbutton">Submit</button>
+                        <div class="cross">
+                            <span>+</span>
+                        </div>
+                        <div>
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" name="projectName">
+                        </div>
+                        <div>
+                            <label for="email">Email</label><br>
+                            <input type="email" id="email" placeholder="example@mail.com" name="projectEmail">
+                        </div>
+                        <div>
+                            <label for="github">Github url</label>
+                            <input type="url" id="github" placeholder="www.github.com" name="projectUrl">
+                        </div>
+                        <div>
+                            <select id="level" name="dropdown">
+                                <option value="beginner">Beginner</option>
+                                <option value="experiemced">Experiemced</option>
+                                <option value="pro">Pro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea maxlength="500" placeholder="Description" name="projectDescription"></textarea>
+                        </div>
+                        <button>
+                            Submit
+                        </button>
                     </form>
-
-
                 </div>
-
             </div>
+        </div>
 
-        </section>
+        <!-- content -->
+        {% for project in projects%}
+        <a class="contentsContainer" href="/project/{{project.id}}/{{project.title}}">
+            <div class="contents">
+                <h2>{{project.title}}</h2>
+                <span class="level">{{project.level}}</span>
+                <p>
+                    {{project.description[0:100]}}
+                </p>
+                <span>...</span>
+            </div>
+        </a>
+        {% endfor %}
+    </section>
 
 
-
-    </main>
+    <!-- footer -->
+    <footer>
+        <p>@copywrite by CodingIdeas</p>
+    </footer>
+    <script src="{{url_for('static', filename='app.js')}}"></script>
     <script>
         async function randomProject() {
             let response = await fetch("/project/random")
@@ -71,6 +98,6 @@
             return window.location.replace(`http://127.0.0.1:5000/project/${data['id']}/${data['title']}`)
         }
     </script>
-    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
+
 </html>

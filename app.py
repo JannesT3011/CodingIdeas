@@ -1,15 +1,17 @@
-from flask import Flask, render_template, request, jsonify, redirect
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import random
 import os
 from datetime import datetime
+from flask.helpers import url_for
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
 import uuid
+import random
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///projects.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
-
 
 def generate_uuid():
     """
@@ -17,11 +19,23 @@ def generate_uuid():
     """
     return str(uuid.uuid4())
 
+def generate_id():
+    """
+    GENERATE A ID OF 5 NUMBERS
+    """
+    one = str(random.randrange(0,9))
+    two = str(random.randrange(0,9)) 
+    three = str(random.randrange(0,9)) 
+    four = str(random.randrange(0,9))  
+    five = str(random.randrange(0,9))  
+
+    return one+two+three+four+five
+
 class Project(db.Model):
     """
     PROJECT MODEL OF PROJECT
     """
-    id = db.Column(db.String, primary_key=True, default=generate_uuid, unique=True)
+    id = db.Column(db.String, primary_key=True, default=generate_id, unique=True)
     name = db.Column(db.String(20))
     mail = db.Column(db.String(320))
     small_description = db.Column(db.String(100))
@@ -32,11 +46,12 @@ class Project(db.Model):
     date_created = db.Column(db.DateTime, default=datetime.utcnow)
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index() -> render_template:
     """
     MAIN PAGE (ONEPAGE LAYOUT)
     """
+
     return render_template("index.html", projects=get_projects())
 
 def get_projects() -> list:
@@ -45,7 +60,7 @@ def get_projects() -> list:
     MAYBE PUT THIS FUNCTIONS IN THE THE db.py file in database/
     """
     all_projects = []
-    projects = Project.query.all()
+    projects = Project.query.order_by(desc(Project.date_created)).all()
     for project in projects:
         pproject = {
             "id": project.id,
@@ -111,8 +126,8 @@ def project_create() -> jsonify:
     db.session.add(project)
     db.session.commit()
 
-    #return jsonify({"message": f"Project {name}({id}) created!", "project_data": data}), 200
-    return redirect("/"), 200
+    #jsonify({"message": f"Project {name}({id}) created!"})
+    return redirect("/")
 
 @app.route("/project/delete", methods=["POST"])
 def project_delete() -> jsonify:
@@ -125,10 +140,12 @@ def project_delete() -> jsonify:
     """
     data = request.get_json()
     id = data["id"]
-    name = data["name"]
+    #name = data["name"]
 
+    Project.query.filter_by(id=id).delete()
+    db.session.commit()
 
-    return jsonify({"message": f"Project {name}({id}) deleted!"}), 200
+    return jsonify({"message": f"Project {id} deleted!"}), 200
 
 @app.route("/project/random", methods=["GET"])
 def project_random() -> jsonify:
