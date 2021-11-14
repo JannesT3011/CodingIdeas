@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodingIdeas</title>
+
+    <!-- font awsome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}"> 
+</head>
+
+<body>
+    <!-- menu section  -->
+    <section class="menuSection">
+        <header>
+            <nav>
+                <a href="/"><h3 id="nav-title">CodingIdeas</h3></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </nav>
+        </header>
+
+    </section>
+
+    <!-- main section of all content -->
+    <section id="projectPageHero">
+        <div class="newRandomBtn">
+            <button class="next" onClick="randomProject()">next</button>
+
+        </div>
+
+
+        <!-- content -->
+        <div class="contents contentsContainer projectContainer">
+            <br>
+            <h2>{{project_name}}</h2>
+            <br>
+            <span class="level">{{project_level}}</span>
+            <br>
+            <p class="projectDescription">
+                {{project_description}}
+            </p>
+            <br>
+        </div>
+
+    </section>
+
+
+    <!-- footer -->
+    <!--<footer>
+        <p>@copywrite by CodingIdeas</p>
+    </footer>-->
+    <script src="{{url_for('static', filename='app.js')}}"></script>
+    <script>
+        async function randomProject() {
+            let response = await fetch("/project/random")
+            let data = await response.json()
+            return window.location.replace(`http://127.0.0.1:5000/project/${data['id']}/${data['title']}`)
+        }
+    </script>
+</body>
+
+</html>
