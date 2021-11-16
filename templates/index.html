@@ -20,7 +20,7 @@
         <header>
             <nav>
                 <a href="/"><h3 id="nav-title">CodingIdeas</h3></a>
-                <a href="https://github.com/Bmbus/Bmbus.github.io"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/Bmbus/CodingIdeas"><i class="fab fa-github"></i></a>
             </nav>
         </header>
 
@@ -42,11 +42,11 @@
                         </div>
                         <div>
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="Enter your name" name="projectName">
+                            <input type="text" id="name" placeholder="Enter your name" name="projectName" required>
                         </div>
                         <div>
                             <label for="email">Email</label><br>
-                            <input type="email" id="email" placeholder="example@mail.com" name="projectEmail">
+                            <input type="email" id="email" placeholder="example@mail.com" name="projectEmail" required>
                         </div>
                         <div>
                             <label for="github">Github url</label>
@@ -55,12 +55,12 @@
                         <div>
                             <select id="level" name="dropdown">
                                 <option value="beginner">Beginner</option>
-                                <option value="experiemced">Experiemced</option>
+                                <option value="experienced">Experienced</option>
                                 <option value="pro">Pro</option>
                             </select>
                         </div>
                         <div>
-                            <textarea maxlength="500" placeholder="Description" name="projectDescription"></textarea>
+                            <textarea maxlength="500" placeholder="Description" name="projectDescription" required></textarea>
                         </div>
                         <button>
                             Submit
@@ -95,7 +95,7 @@
         async function randomProject() {
             let response = await fetch("/project/random")
             let data = await response.json()
-            return window.location.replace(`http://127.0.0.1:5000/project/${data['id']}/${data['title']}`)
+            return window.location.replace(`/project/${data['id']}/${data['title']}`)
         }
     </script>
 </body>

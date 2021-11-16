@@ -5,6 +5,11 @@
     font-family: "ticketing";
     src: url("fonts/Ticketing.ttf");
 }
+
+/*html, body {
+    background-color: #212121;
+} */
+
 * {
     margin: 0px;
     padding: 0px;

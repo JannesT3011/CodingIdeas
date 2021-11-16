@@ -20,7 +20,7 @@
         <header>
             <nav>
                 <a href="/"><h3 id="nav-title">CodingIdeas</h3></a>
-                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/Bmbus/CodingIdeas"><i class="fab fa-github"></i></a>
             </nav>
         </header>
 
@@ -59,7 +59,7 @@
         async function randomProject() {
             let response = await fetch("/project/random")
             let data = await response.json()
-            return window.location.replace(`http://127.0.0.1:5000/project/${data['id']}/${data['title']}`)
+            return window.location.replace(`/project/${data['id']}/${data['title']}`)
         }
     </script>
 </body>
