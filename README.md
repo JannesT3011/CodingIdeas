@@ -30,3 +30,16 @@ exit()
 ```console
 $ python3 app.py
 ```
+
+## TODO:
+- [ ] Dark mode
+- [ ] category search
+- [ ] category random idea
+- [ ] help button
+- [ ] account
+- [ ] account: Mark idea as done
+- [ ] account: Like idea / mark as fav
+- [ ] Auto mail after created idea
+- [ ] add creator to idea page
+- [ ] list top ideas and top creator
+- [ ] report idea (+duplicate ideas)
