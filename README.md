@@ -1,6 +1,7 @@
 # ProjectIdeas
 Platform to uplaod you project ideas or get project ideas
 
+https://www.codingideas.org/
 
 ## Run
 1. Install all requirements
