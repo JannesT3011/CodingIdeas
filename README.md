@@ -1,4 +1,4 @@
-# ProjectIdeas :green_book:
+# ProjectIdeas 🟩
 Platform to upload you project ideas or get project ideas
 
 https://www.codingideas.org/
