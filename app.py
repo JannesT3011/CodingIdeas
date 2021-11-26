@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///projects.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
+secret = ""
 
 def generate_uuid():
     """
@@ -140,12 +141,16 @@ def project_delete() -> jsonify:
     """
     data = request.get_json()
     id = data["id"]
+    data_secret = data["secret"]
+    if data_secret == secret:
     #name = data["name"]
 
-    Project.query.filter_by(id=id).delete()
-    db.session.commit()
+        Project.query.filter_by(id=id).delete()
+        db.session.commit()
 
-    return jsonify({"message": f"Project {id} deleted!"}), 200
+        return jsonify({"message": f"Project {id} deleted!"}), 200
+    
+    return 403
 
 @app.route("/project/random", methods=["GET"])
 def project_random() -> jsonify:
@@ -158,4 +163,4 @@ def project_random() -> jsonify:
     return jsonify(random_project), 200
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
