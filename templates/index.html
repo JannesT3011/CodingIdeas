@@ -42,18 +42,19 @@
                             <span>+</span>
                         </div>
                         <div>
-                            <label for="name">Your Name</label>
+                            <label for="name">Your Name*</label>
                             <input type="text" id="name" placeholder="Enter your name" name="projectName" required>
                         </div>
                         <div>
                             <label for="email">Email</label><br>
-                            <input type="email" id="email" placeholder="example@mail.com" name="projectEmail" required>
+                            <input type="email" id="email" placeholder="example@mail.com" name="projectEmail">
                         </div>
                         <div>
                             <label for="github">Github url</label>
                             <input type="url" id="github" placeholder="www.github.com" name="projectUrl">
                         </div>
                         <div>
+                            <label for="level">Level*</label><br>
                             <select id="level" name="dropdown">
                                 <option value="beginner">Beginner</option>
                                 <option value="experienced">Experienced</option>
@@ -61,7 +62,8 @@
                             </select>
                         </div>
                         <div>
-                            <textarea maxlength="500" placeholder="Description" name="projectDescription" required></textarea>
+                            <label for="description">Idea descritpion*</label><br>
+                            <textarea maxlength="500" placeholder="Description" name="projectDescription" id="description" required></textarea>
                         </div>
                         <button>
                             Submit
