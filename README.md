@@ -1,4 +1,4 @@
-# ProjectIdeas 🟩
+# CodingIdeas 🟩
 Platform to upload you project ideas or get project ideas
 
 https://www.codingideas.org/
