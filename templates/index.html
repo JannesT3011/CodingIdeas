@@ -32,6 +32,13 @@
         <div class="newRandomBtn">
             <button class="addNew">New</button>
             <button class="randomBtn" onClick="randomProject()">Random</button>
+            <select name="" id="lvlsort">
+                <option value=""selected disabled hidden>Select level</option>
+                <option value="beginner">Beginner</option>
+                <option value="experienced">Experienced</option>
+                <option value="pro">Pro</option>
+                <option value="all">View all</option>
+            </select>
         </div>
         <div class="popupcontainer">
             <div class="popup">
@@ -95,6 +102,15 @@
     </footer>
     <script src="{{url_for('static', filename='app.js')}}"></script>
     <script>
+        var lvlsort = document.getElementById("lvlsort")
+        lvlsort.onchange = function() {
+            if (lvlsort.value == "all") {
+                window.location.replace("/")
+            } else {
+                window.location.replace(`/${lvlsort.value}`)
+            }
+        }
+
         async function randomProject() {
             let response = await fetch("/project/random")
             let data = await response.json()

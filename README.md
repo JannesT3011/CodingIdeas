@@ -33,7 +33,7 @@ $ python3 app.py
 
 ## TODO:
 - [ ] Dark mode
-- [ ] category search
+- [x] category search
 - [ ] category random idea
 - [ ] help button
 - [ ] account

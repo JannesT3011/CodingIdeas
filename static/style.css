@@ -125,6 +125,7 @@ section.hero {
     font-style: bold;
     text-transform: uppercase;
     font-size: 25px;
+    margin-top: 5px;
 }
 
 .contents p {

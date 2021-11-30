@@ -55,6 +55,18 @@ def index() -> render_template:
 
     return render_template("index.html", projects=get_projects())
 
+@app.route("/<level>", methods=["GET"])
+def index_sortlvl(level) -> render_template:
+    """
+    VIEW PROJECT BY LEVEL
+    """
+    sort_projects = []
+    for project in get_projects():
+        if project["level"] == level:
+            sort_projects.append(project)
+
+    return render_template("index.html", projects=sort_projects)
+
 def get_projects() -> list:
     """
     RETURNS ALL PROJECTS (LIST OF DICTS)
@@ -157,7 +169,7 @@ def project_random() -> jsonify:
     """
     GET A RANDOM PROJECT
     """
-    projects = get_projects()
+    projects = get_projects() # if category not none: for i in project: if project.level = level => push => random.choice(level_projects) ELSE random.choice(projects)
     random_project = random.choice(projects)
     
     return jsonify(random_project), 200
