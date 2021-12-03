@@ -43,3 +43,5 @@ $ python3 app.py
 - [ ] add creator to idea page
 - [ ] list top ideas and top creator
 - [ ] report idea (+duplicate ideas)
+- [ ] fix responsive
+- [ ] blog
