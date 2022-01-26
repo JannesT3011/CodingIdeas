@@ -37,7 +37,8 @@ $ python3 app.py
 - [ ] category random idea
 - [ ] help button
 - [ ] account
-- [ ] account: Mark idea as done
+- [ ] account: Mark idea as done > get point for each completed task
+- [ ] account: score system
 - [ ] account: Like idea / mark as fav
 - [ ] Auto mail after created idea
 - [ ] add creator to idea page
@@ -45,3 +46,8 @@ $ python3 app.py
 - [ ] report idea (+duplicate ideas)
 - [ ] fix responsive
 - [ ] blog
+- [ ] check if text ad or different
+- [ ] redesign webpage
+- [ ] rate idea
+- [ ] more staring ideas
+- [ ] for beginner ideas (short coding ideas): add code & reveal after clicking done 
