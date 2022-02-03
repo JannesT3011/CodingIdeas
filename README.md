@@ -51,3 +51,4 @@ $ python3 app.py
 - [ ] rate idea
 - [ ] more staring ideas
 - [ ] for beginner ideas (short coding ideas): add code & reveal after clicking done 
+- [ ] discussion
