@@ -1,7 +1,7 @@
 # CodingIdeas 🟩
 Platform to upload you project ideas or get project ideas
 
-https://www.codingideas.org/
+(https://www.codingideas.org/) Currently not available
 
 Feel free to add you CodingIdeas!
 
